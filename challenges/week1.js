@@ -83,7 +83,7 @@ function getMeanScore(scores) {
     total += item;
   })
   let preRound = total / scores.length;
-  let result = preround.tofixed(2);
+  let result = preRound.tofixed(2);
   return Number(result);
 }
 
