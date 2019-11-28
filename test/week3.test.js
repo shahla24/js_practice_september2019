@@ -1,3 +1,4 @@
+
 const {
   getSquares,
   camelCaseWords,
@@ -6,7 +7,7 @@ const {
   duplicateNumbers
 } = require("../challenges/week3");
 
-xdescribe("camelCaseWords", () => {
+describe("camelCaseWords", () => {
   test("camel cases a single word (i.e. no capital letter at beginning)", () => {
     expect(camelCaseWords(["my"])).toBe("my");
   });
@@ -44,7 +45,7 @@ describe("getSquares", () => {
   });
 });
 
-xdescribe("getTotalSubjects", () => {
+describe("getTotalSubjects", () => {
   test("returns 0 if no people have subjects", () => {
     const people = [
       { name: "Billy", subjects: [] },
@@ -133,7 +134,7 @@ describe("checkIngredients", () => {
   });
 });
 
-xdescribe("duplicateNumbers", () => {
+describe("duplicateNumbers", () => {
   test("returns an array of numbers which appear in both arr1 and arr2", () => {
     let arr1 = [1, 55, 4, 3, 7, 8];
     let arr2 = [55, 23, 65, 0];
