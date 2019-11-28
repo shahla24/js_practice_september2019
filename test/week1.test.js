@@ -11,7 +11,7 @@ const {
   simpleFizzBuzz
 } = require("../challenges/week1");
 
-describe("capitalize", () => {
+describe.only("capitalize", () => {
   test("returns a capitalized string", () => {
     expect(capitalize("hello")).toBe("Hello");
     expect(capitalize("the quick fox")).toBe("The quick fox");
@@ -65,7 +65,7 @@ describe("getSalePrice", () => {
   });
 });
 
-xdescribe("getMiddleCharacter", () => {
+describe("getMiddleCharacter", () => {
   test("returns the middle character from a string of odd length", () => {
     expect(getMiddleCharacter("bears!!!!")).toBe("s");
   });
@@ -99,7 +99,7 @@ describe("reverseAllWords", () => {
   });
 });
 
-xdescribe("countLinuxUsers", () => {
+describe("countLinuxUsers", () => {
   test("returns 0 if no Linux users found", () => {
     const users = [
       { name: "Heather", OS: "Windows 8", type: "Windows" },
@@ -124,7 +124,7 @@ xdescribe("countLinuxUsers", () => {
   });
 });
 
-xdescribe("getMeanScore", () => {
+describe("getMeanScore", () => {
   test("returns the mean score from an array of scores", () => {
     expect(getMeanScore([8, 9, 7])).toBe(8);
     expect(getMeanScore([88, 86, 93])).toBe(89);
@@ -135,7 +135,7 @@ xdescribe("getMeanScore", () => {
   });
 });
 
-xdescribe("simpleFizzBuzz", () => {
+describe("simpleFizzBuzz", () => {
   test("returns 'fizz' if the number is divisible by 3", () => {
     expect(simpleFizzBuzz(3)).toBe("fizz");
   });

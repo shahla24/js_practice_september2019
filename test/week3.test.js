@@ -25,7 +25,7 @@ xdescribe("camelCaseWords", () => {
   });
 });
 
-xdescribe("getSquares", () => {
+describe("getSquares", () => {
   test("returns an empty array if empty array passed", () => {
     expect(getSquares([])).toEqual([]);
   });
@@ -73,7 +73,7 @@ xdescribe("getTotalSubjects", () => {
   });
 });
 
-xdescribe("checkIngredients", () => {
+describe("checkIngredients", () => {
   test("returns false if no menu items include the specified ingredient", () => {
     const menu = [
       {

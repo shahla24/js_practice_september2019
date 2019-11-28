@@ -31,17 +31,17 @@ function getSalePrice(originalPrice, reduction) {
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
   
-    let startPos = str.length / 2;
-    let result;
-    if (str.length % 2 === 0) {
-      result = str.slice (startPos - 1, startPos + 1);
+    
+    else if (str.length % 2 === 0) {
+      let mid = str.length / 2
+      return str.slice (mid - 1, mid + 1);
+    } else {
+      let newLength = str.length + 1;
+      mid = newLength / 2;
     }
-    else {
-      startPos = Math.trunc(startPos);
-      result = str.slice(startPos, startPos + 1);
-    }
-    return result;
+    return str.slice(mid - 1, mid)
       }
+    
 
 
 function reverseWord(word) {
@@ -70,7 +70,7 @@ function countLinuxUsers(users) {
   users.forEach(function(user) {
     const machineType = user.type;
     if(machineType === "Linux") {
-      total = total + 1;
+      total += 1;
     }
   });
   return total;
@@ -82,23 +82,19 @@ function getMeanScore(scores) {
   scores.forEach(function(item) {
     total += item;
   })
-  let preRound = total / scores.length;
-  let result = preRound.tofixed(2);
-  return Number(result);
+  return Math.round((total/scores.length) * 100)/100;
 }
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
   if (n % 3 === 0 && n % 5 === 0) {
     return 'fizzbuzz';
-  }
-  else if  (n % 3 === 0) {
-    return 'fizz';
-  }
-  else if ( n % 5 === 0) {
-    return 'buzz';
-  }
-  else { return n }
+  } else if  (n % 3 !== 0 && n % 5 !==0) {
+    return n
+  } else if ( n % 3 === 0) {
+    return "fizz";
+  } else if (n % 5 ===0) {
+    return "buzz" }
 }
 
 module.exports = {
