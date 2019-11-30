@@ -9,7 +9,7 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  const findName = names.filter(function (name) {
+  const findNames = names.filter(function (name) {
     if (name[0] === char) {
       return true;
 
@@ -17,12 +17,20 @@ function findNamesBeginningWith(names, char) {
       return false
     }
   });
-  return findName;
+  return findNames;
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  
+  const verbsFound = words.filter(function(word) {
+const findTo = (word.slice(0, 3));
+if(findTo === "to ") {
+  return true
+} else {
+  return false
+}
+  })
+  return verbsFound
 }
 
 function getIntegers(nums) {
@@ -38,23 +46,42 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
+  const usersCities = users.map(function(user) {
+    const userData = user.data.city.displayName
+    return userData
+  })
+  return usersCities;
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  const squareRoots = nums.map(n => {
+    return Math.round(Math.sqrt(n) * 100) / 100
+  })
+  return squareRoots
 }
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
+  let resultSentences = [];
+  sentences.forEach(function (sentence) {
+    if (sentence.toLowerCase().includes(str)) {
+      resultSentences.push(sentence)
+    }
+  })
+  return resultSentences
+
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // Your code here
+  let longestSides = [];
+  triangles.forEach(function (triangle) {
+    longestSides.push(Math.max(...triangle));
+  })
+  return longestSides
+
 }
 
 module.exports = {
