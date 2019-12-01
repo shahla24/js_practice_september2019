@@ -22,15 +22,15 @@ function findNamesBeginningWith(names, char) {
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  const verbsFound = words.filter(function(word) {
-const findTo = (word.slice(0, 3));
-if(findTo === "to ") {
-  return true
-} else {
-  return false
-}
+  const verbsFound = words.filter(function (word) {
+    const findTo = (word.slice(0, 3));
+    if (findTo === "to ") {
+      return true
+    } else {
+      return false
+    }
   })
-  return verbsFound
+  return verbsFound;
 }
 
 function getIntegers(nums) {
@@ -46,7 +46,7 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  const usersCities = users.map(function(user) {
+  const usersCities = users.map(function (user) {
     const userData = user.data.city.displayName
     return userData
   })
@@ -58,7 +58,7 @@ function getSquareRoots(nums) {
   const squareRoots = nums.map(n => {
     return Math.round(Math.sqrt(n) * 100) / 100
   })
-  return squareRoots
+  return squareRoots;
 }
 
 function findSentencesContaining(sentences, str) {
@@ -70,7 +70,7 @@ function findSentencesContaining(sentences, str) {
       resultSentences.push(sentence)
     }
   })
-  return resultSentences
+  return resultSentences;
 
 }
 
@@ -80,7 +80,7 @@ function getLongestSides(triangles) {
   triangles.forEach(function (triangle) {
     longestSides.push(Math.max(...triangle));
   })
-  return longestSides
+  return longestSides;
 
 }
 
