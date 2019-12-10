@@ -51,18 +51,57 @@ const sumArrays = arrs => {
 
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
-  // Your code here!
+  if (arr.length < 2) return arr
+  let firstItem = arr.shift();
+  let lastItem = arr.pop();
+  arr.unshift(lastItem)
+  arr.push(firstItem);
+  return arr
 };
-
+  
+  
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  // Your code here!
+  let found = false;
+  let allKeys = []
+  let allValues = []
+
+  for (let key in haystack) {
+    allKeys.push(key)
+    allValues.push(haystack[key])
+  }
+
+  allKeys.forEach((key) => {
+    if (key.toUpperCase().includes(searchTerm.toUpperCase())) {
+      found = true
+    }
+  })
+
+  allValues.forEach((value) => {
+    if (value.toString().toUpperCase().includes(searchTerm.toUpperCase())) {
+      found = true
+    }
+  })
+
+  return found
 };
 
-const getWordFrequencies = str => {
-  if (str === undefined) throw new Error("str is required");
-  // Your code here!
+
+  const getWordFrequencies = str => {
+    if (str === undefined) throw new Error("str is required");
+    const repetitions = {};
+    const splitWords = str.toLowerCase().replace(/[^a-zA-Z ]/g, "").split(" ")
+    for (let i = 0; i < splitWords.length; i++) {
+      const word = splitWords[i];
+      if (repetitions[word] === undefined) {
+        repetitions[word] = 1;
+      } else {
+        repetitions[word] += 1;
+      }
+    }
+    return repetitions
+  
 };
 
 module.exports = {
