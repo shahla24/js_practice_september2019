@@ -43,6 +43,19 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  let strToArray = str.split("");
+  const newArr = strToArray.map(function (char) {
+    if (char.toUpperCase() == "T") {
+      return "A"
+    } else if (char.toUpperCase() === "A") {
+      return "T"
+    } else if (char.toUpperCase() === "C") {
+      return "G"
+    } else if (char.toUpperCase() === "G") {
+      return "C"
+    }
+  });
+  return newArr.join("");
 };
 
 /**
@@ -52,7 +65,14 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  for (let i = 2; i < n; i++)
+  if (n % i === 0) {
+    return false
+  }
+return n > 1;
 };
+
+
 
 /**
  * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
@@ -68,7 +88,17 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
-};
+  let completeFill = fill + " ";
+  let internalArray = completeFill.repeat(n).split(" ");
+  let popped = internalArray.pop()
+  let matrix = [];
+  let length = n;
+  for (let i = 0; i < length; i++) {
+    matrix.push(internalArray);
+  }
+  return matrix;
+}
+
 
 /**
  * This function takes an array of staff objects in the format:
@@ -85,6 +115,20 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  let count = 0;
+  staff.forEach(function (employee) {
+    for (let key in employee) {
+      if (employee[key].includes(day)) {
+        count += 1;
+      }
+    }
+  });
+  if (count >= 3) {
+    return true;
+  } else {
+    return false;
+  }
+
 };
 
 module.exports = {
